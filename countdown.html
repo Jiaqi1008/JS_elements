@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function countDown(time) {
+            var nowTime = +new Date();
+            var InputTime = +new Date(time);
+            var time = (InputTime - nowTime) / 1000;
+            if (time < 0) {
+                return 'Input end time is earlier than the time now or the format of input time is wrong.'
+            } else {
+                var d = parseInt(time / 60 / 60 / 24);
+                d = d < 10 ? '0' + d : d;
+                var h = parseInt(time / 60 / 60 % 24);
+                h = h < 10 ? '0' + h : h;
+                var m = parseInt(time / 60 % 60);
+                m = m < 10 ? '0' + m : m;
+                var s = parseInt(time % 60);
+                s = s < 10 ? '0' + s : s;
+                return d + ' day ' + h + ' hour ' + m + ' minute ' + s + ' second'
+            }
+        }
+        var time = prompt('Please input end time (in format of "yyyy-mm-dd hh:mm:ss"):')
+        console.log(countDown(time));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

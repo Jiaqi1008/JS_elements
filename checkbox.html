@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            margin: 200px auto;
+            width: 300px;
+        }
+
+        .wrap table {
+            text-align: center;
+        }
+
+        .wrap table thead {
+            background-color: rgb(90, 161, 226);
+        }
+
+        .wrap table tbody {
+            background-color: #bdb6b6;
+        }
+
+        .wrap table thead tr th:nth-child(1) {
+            width: 30px;
+        }
+
+        .wrap table thead tr th:nth-child(2) {
+            width: 170px;
+        }
+
+        .wrap table thead tr th:nth-child(3) {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="j_cbAll"></th>
+                    <th>商品</th>
+                    <th>价钱</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>iPhone8</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>iPad Pro</td>
+                    <td>5000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>iPad Air</td>
+                    <td>2000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>Apple Watch</td>
+                    <td>2000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var j_cbAll = document.querySelector('#j_cbAll')
+        var j_tbs = document.querySelector('#j_tb').querySelectorAll('input')
+        j_cbAll.addEventListener('click', function () {
+            for (var i = 0; i < j_tbs.length; i++) {
+                j_tbs[i].checked = this.checked
+            }
+        })
+
+        for (var i = 0; i < j_tbs.length; i++) {
+            j_tbs[i].addEventListener('click', function () {
+                var flag = true;
+                for (var i = 0; i < j_tbs.length; i++) {
+                    if (!j_tbs[i].checked) {
+                        flag = false;
+                        break;
+                    }
+                }
+                j_cbAll.checked = flag
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            display: block;
+            margin: auto;
+            width: 450px;
+            height: 300px;
+        }
+
+        div {
+            margin: 20px;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="" alt="">
+    <div></div>
+    <script>
+        var img = document.querySelector('img');
+        var div = document.querySelector('div');
+        var date = new Date();
+        var h = date.getHours();
+        if (h < 12) {
+            img.src = "./images/kaisa-1280x1024.jpg"
+            div.innerHTML = 'Good Morning! <br> "Tell yourself you will live. Believe it, Kai\'Sa, and you will have a chance."'
+        } else if (h < 18) {
+            img.src = "./images/Jinx_0.jpg"
+            div.innerHTML = 'Good Afternoon! <br> "Who needs reasons?"'
+        } else {
+            img.src = "./images/Jhin_0.jpg"
+            div.innerHTML = 'Good Evening! <br>"In carnage, I bloom, like a flower in the dawn."'
+        }
+    </script>
+</body>
+
+</html>

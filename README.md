@@ -1,2 +1,2 @@
-# JS_section
- This is a respository for different JS sections 
+# JS_element
+ This is a respository for different JS elements
