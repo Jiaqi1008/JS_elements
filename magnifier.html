@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .preview_img {
+            position: relative;
+            margin: 100px 0 0 100px;
+            width: 180px;
+            height: 180px;
+
+        }
+
+        .preview_img>img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 90px;
+            height: 90px;
+            background-color: #fede4f;
+            opacity: 0.5;
+            cursor: move;
+        }
+
+        .big {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 190px;
+            width: 360px;
+            height: 360px;
+            z-index: 999;
+            border: 1px solid #cccccc;
+            overflow: hidden;
+        }
+
+        .big .bigImg {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preview_img">
+        <img src="./images/lab.jpeg" alt="">
+        <div class="mask"></div>
+        <div class="big"><img src="./images/lab.jpeg" alt="" class="bigImg"></div>
+    </div>
+    <script>
+        var preview_img = document.querySelector('.preview_img');
+        var mask = document.querySelector('.mask');
+        var big = document.querySelector('.big');
+        var bigImg = document.querySelector('.bigImg');
+        preview_img.addEventListener('mouseover', function () {
+            mask.style.display = 'block';
+            big.style.display = 'block';
+        })
+        preview_img.addEventListener('mouseout', function () {
+            mask.style.display = 'none';
+            big.style.display = 'none';
+        })
+        preview_img.addEventListener('mousemove', function (e) {
+            var x = e.pageX - preview_img.offsetLeft;
+            var y = e.pageY - preview_img.offsetTop;
+            var width = mask.offsetWidth;
+            var height = mask.offsetHeight;
+            var maskX = x - width / 2;
+            var maskY = y - height / 2;
+            var maskMaxWidth = preview_img.offsetWidth - mask.offsetWidth;
+            var maskMaxHeight = preview_img.offsetHeight - mask.offsetHeight;
+            if (maskX < 0) {
+                maskX = 0;
+            } else if (maskX > maskMaxWidth) {
+                maskX = maskMaxWidth;
+            }
+            if (maskY < 0) {
+                maskY = 0;
+            } else if (maskY > maskMaxHeight) {
+                maskY = maskMaxHeight;
+            }
+            mask.style.left = maskX + 'px';
+            mask.style.top = maskY + 'px';
+            var bigImgMaxWidth = big.offsetWidth - bigImg.offsetWidth;
+            var bigImgMaxHeight = big.offsetHeight - bigImg.offsetHeight;
+            var bigImgX = maskX * bigImgMaxWidth / maskMaxWidth;
+            var bigImgY = maskY * bigImgMaxHeight / maskMaxHeight;
+            bigImg.style.left = bigImgX + 'px';
+            bigImg.style.top = bigImgY + 'px';
+        })
+    </script>
+</body>
+
+</html>
