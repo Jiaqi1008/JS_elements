@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        .focus {
+            overflow: hidden;
+            position: relative;
+            margin: 100px auto;
+            width: 590px;
+            height: 320px;
+        }
+
+        .focus img {
+            float: left;
+            width: 590px;
+            height: 300px;
+        }
+
+        [class^=arrow] {
+            display: none;
+            position: absolute;
+            width: 20px;
+            height: 35px;
+            background-color: rgba(0, 0, 0, 0.3);
+            top: 45%;
+            font-size: 24px;
+            z-index: 99;
+        }
+
+        .arrow-l {
+            left: 0;
+        }
+
+        .arrow-r {
+            right: 0;
+        }
+
+        ul {
+            position: absolute;
+            width: 600%;
+        }
+
+        ol {
+            position: absolute;
+            left: 30px;
+            bottom: 20px;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        ol li {
+            float: left;
+            margin: 0 3px;
+            cursor: pointer;
+        }
+
+        ol li::before {
+            content: 'o';
+        }
+
+        ol .current::before {
+            content: '●';
+        }
+    </style>
+    <script src="./animate.js"></script>
+    <script src="./focus.js"></script>
+</head>
+
+<body>
+    <div class="focus">
+        <!-- arrow -->
+        <a href="javascript:;" class="arrow-l">&lt;</a>
+        <a href="javascript:;" class="arrow-r">&gt;</a>
+        <!-- body -->
+        <ul>
+            <li><a href="#"><img src="./images/focus1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/focus2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/focus3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/focus4.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/focus5.jpg" alt=""></a></li>
+        </ul>
+        <!-- circle -->
+        <ol class='circle'>
+        </ol>
+    </div>
+</body>
+
+</html>
