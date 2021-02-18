@@ -44,7 +44,7 @@ window.addEventListener('load', function () {
     arrow_r.addEventListener('click', function () {
         if (flag) {
             flag = false;
-            if (num == ul.children.length - 1) {
+            if (num >= ul.children.length - 1) {
                 num = 0;
                 ul.style.left = 0;
             }
@@ -53,7 +53,7 @@ window.addEventListener('load', function () {
                 flag = true;
             });
             circle++;
-            if (circle == ul.children.length - 1) {
+            if (circle >= ul.children.length - 1) {
                 circle = 0;
             };
             circleChange();
@@ -63,7 +63,7 @@ window.addEventListener('load', function () {
     arrow_l.addEventListener('click', function () {
         if (flag) {
             flag = false;
-            if (num == 0) {
+            if (num <= 0) {
                 num = ul.children.length - 1;
                 ul.style.left = -focusWidth * num + 'px';
             }
@@ -71,7 +71,7 @@ window.addEventListener('load', function () {
             animate(ul, -focusWidth * num, function () {
                 flag = true;
             });
-            if (circle == 0) {
+            if (circle <= 0) {
                 circle = ul.children.length - 1;
             };
             circle--;
