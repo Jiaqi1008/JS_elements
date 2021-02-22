@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        em {
+            font-style: normal;
+            color: red;
+        }
+
+        .cart-wrap {
+            margin: 100px auto;
+            width: 90vw;
+        }
+
+        .cart-wrap .cart-thead,
+        .cart-item-list .cart-item {
+            display: flex;
+            flex: 8;
+            width: 100%;
+            background-color: #f1f3f4;
+        }
+
+        .cart-wrap .cart-thead div,
+        .cart-item-list .cart-item>div {
+            flex: 1;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .cart-wrap .cart-thead div:nth-of-type(1),
+        .cart-item-list .cart-item>div:nth-of-type(1) {
+            flex: 0.5;
+            padding-left: 10px;
+            text-align: left;
+        }
+
+        .cart-wrap .cart-thead div:nth-of-type(2),
+        .cart-item-list .cart-item>div:nth-of-type(2) {
+            flex: 3;
+            padding-left: 40px;
+            text-align: left;
+        }
+
+        .cart-item-list,
+        .cart-floatbar {
+            margin: 10px 0;
+            border: 1px solid #f1f1f1;
+        }
+
+        .cart-item-list .cart-item {
+            background-color: transparent;
+            height: 30vh;
+            margin-bottom: 10px;
+            border-top: 2px solid #000;
+        }
+
+        .cart-item-list .cart-item:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .cart-item-list .cart-item .p-img {
+            float: left;
+            padding: 0;
+            margin-right: 10px;
+            width: 75px;
+            height: 100px;
+        }
+
+        .cart-item-list .cart-item .p-goods {
+            padding-left: 0 !important;
+            padding-right: 40px !important;
+        }
+
+        .cart-item-list .cart-item .p-msg {
+            padding: 0;
+        }
+
+        .cart-item-list .cart-item .p-goods img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .cart-item-list .cart-item .p-num .quantity-form {
+            margin: 0 auto;
+            width: 100px;
+            height: 20px;
+        }
+
+        .cart-item-list .cart-item .p-num .quantity-form a,
+        .cart-item-list .cart-item .p-num .quantity-form .itxt {
+            float: left;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 15px;
+            border: 1px solid #c1c1c1;
+        }
+
+        .cart-item-list .cart-item .p-num .quantity-form .itxt {
+            width: 50px;
+        }
+
+        .check-cart-item {
+            background-color: #fff4e8 !important;
+        }
+
+        .cart-floatbar {
+            height: 50px;
+            background-color: transparent;
+        }
+
+        .cart-floatbar>div {
+            float: left;
+            height: 50px;
+            line-height: 50px;
+            margin: 0 20px;
+        }
+
+        .cart-floatbar>div:nth-of-type(1) {
+            width: 5%;
+            margin-left: 5px;
+        }
+
+        .cart-floatbar>div:nth-of-type(2) {
+            width: 20%;
+        }
+
+        .cart-floatbar>div:nth-of-type(2) a {
+
+            margin: 0 10px;
+        }
+
+        .cart-floatbar>div:nth-of-type(3) {
+            width: 50%;
+            float: right;
+            margin-right: 0;
+            text-align: center;
+        }
+
+        .cart-floatbar>div:nth-of-type(3) div {
+            float: right;
+            margin: 0 10px;
+        }
+
+        .cart-floatbar>div:nth-of-type(3) .btn-area {
+            width: 20%;
+            margin-right: 0;
+            background-color: red;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    </style>
+    <script src="./jquery-3.5.1.min.js"></script>
+    <script src="./shopCart.js"></script>
+</head>
+
+<body>
+    <div class="cart-wrap">
+        <div class="cart-thead">
+            <div class="t-checkbox">
+                <input type="checkbox" name="" id="" class="checkall">&nbsp; 全选
+            </div>
+            <div class="t-goods">商品</div>
+            <div class="t-price">单价</div>
+            <div class="t-num">数量</div>
+            <div class="t-sum">小计</div>
+            <div class="t-action">操作</div>
+        </div>
+        <div class="cart-item-list">
+            <div class="cart-item">
+                <div class="p-checkbox">
+                    <input type="checkbox" name="" id="" class="j-checkbox">
+                </div>
+                <div class="p-goods">
+                    <div class="p-img">
+                        <img src="./images/Jhin_0.jpg" alt="">
+                    </div>
+                    <div class="p-msg">无名艺术家</div>
+                </div>
+                <div class="p-price">￥12.60</div>
+                <div class="p-num">
+                    <div class="quantity-form">
+                        <a href="javascript:;" class="decrement">-</a>
+                        <input type="text" class="itxt" value="1">
+                        <a href="javascript:;" class="increment">+</a>
+                    </div>
+                </div>
+                <div class="p-sum">￥12.60</div>
+                <div class="p-action"><a href="javascript:;">删除</a></div>
+            </div>
+            <div class="cart-item">
+                <div class="p-checkbox">
+                    <input type="checkbox" name="" id="" class="j-checkbox">
+                </div>
+                <div class="p-goods">
+                    <div class="p-img">
+                        <img src="./images/Jinx_0.jpg" alt="">
+                    </div>
+                    <div class="p-msg">危险通缉犯</div>
+                </div>
+                <div class="p-price">￥24.80</div>
+                <div class="p-num">
+                    <div class="quantity-form">
+                        <a href="javascript:;" class="decrement">-</a>
+                        <input type="text" class="itxt" value="1">
+                        <a href="javascript:;" class="increment">+</a>
+                    </div>
+                </div>
+                <div class="p-sum">￥24.80</div>
+                <div class="p-action"><a href="javascript:;">删除</a></div>
+            </div>
+            <div class="cart-item">
+                <div class="p-checkbox">
+                    <input type="checkbox" name="" id="" class="j-checkbox">
+                </div>
+                <div class="p-goods">
+                    <div class="p-img">
+                        <img src="./images/kaisa-1280x1024.jpg" alt="">
+                    </div>
+                    <div class="p-msg">知名女演员</div>
+                </div>
+                <div class="p-price">￥29.80</div>
+                <div class="p-num">
+                    <div class="quantity-form">
+                        <a href="javascript:;" class="decrement">-</a>
+                        <input type="text" class="itxt" value="1">
+                        <a href="javascript:;" class="increment">+</a>
+                    </div>
+                </div>
+                <div class="p-sum">￥29.80</div>
+                <div class="p-action"><a href="javascript:;">删除</a></div>
+            </div>
+        </div>
+        <div class="cart-floatbar">
+            <div class="select-all">
+                <input type="checkbox" name="" id="" class="checkall">&nbsp; 全选
+            </div>
+            <div class="operation">
+                <a href="javascript:;" class="remove-batch">删除选中物品</a>
+                <a href="javascript:;" class="clear-all">清理购物车</a>
+            </div>
+            <div class="toolbar-right">
+                <div class="btn-area">去结算</div>
+                <div class="price-sum">总价：<em>￥12.60</em></div>
+                <div class="amount-sum">已经选<em>1</em>件商品</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
